@@ -15,7 +15,7 @@ function data(result, word){
         phontetics = `${result[0].meanings[0].partOfSpeech}  /${result[0].phonetics[0].text}/`;
         document.querySelector(".word p").innerText = result[0].word;
         document.querySelector(".word span").innerText = phontetics;
-        document.querySelector(".meaning span").innerText = definitions.definition;
+        document.querySelector(" .meaning span").innerText = definitions.definition;
         document.querySelector(".example span").innerText = definitions.example;
         audio = new Audio(result[0].phonetics[0].audio);
 
@@ -24,9 +24,9 @@ function data(result, word){
         }else{
             synonyms.parentElement.style.display = "block";
             synonyms.innerHTML = "";
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 5 ; i++) {
                 let tag = `<span onclick="search('${definitions.synonyms[i]}')">${definitions.synonyms[i]},</span>`;
-                tag = i == 4 ? tag = `<span onclick="search('${definitions.synonyms[i]}')">${definitions.synonyms[4]}</span>` : tag;
+                tag = i == 4  ? tag = `<span onclick="search('${definitions.synonyms[i]}')">${definitions.synonyms[4]}</span>` : tag;
                 synonyms.insertAdjacentHTML("beforeend", tag);
             }
         }
